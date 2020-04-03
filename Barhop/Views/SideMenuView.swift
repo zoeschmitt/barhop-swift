@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct SideMenuView : View {
+    
     var menuItems = ["My Account", "Billing", "Team", "Sign out"]
     var menu: [Menu] = menuData
     var showModal = false
@@ -29,14 +30,12 @@ struct SideMenuView : View {
                     Spacer()
                 }
             }
-            .frame(maxWidth: 360)
-                .padding(30).padding(.top, 30)
-                .background(Color.white)
-                .cornerRadius(15)
-                .padding(.top, .none)
-                .padding(.trailing, 50)
-                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 20)
-                .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 10)
+            .padding(30).padding(.top, 30)
+            .background(Color(#colorLiteral(red: 0.1501895785, green: 0.1452608109, blue: 0.1475338638, alpha: 1)))
+            .cornerRadius(15)
+            .padding(.trailing, 70)
+            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 20)
+            .shadow(color: Color.black.opacity(0.1), radius: 30, x: 0, y: 10)
             
             Spacer()
         }
@@ -47,15 +46,16 @@ struct SideMenuView : View {
 struct MenuItem : View {
     var title = ""
     var icon = "creditcard"
+    
     var body: some View {
         return HStack {
             Image(systemName: icon)
                 .imageScale(.large)
                 .frame(width: 32, height: 32)
-                .foregroundColor(Color(red: 0.6627450980392157, green: 0.7333333333333333, blue: 0.8313725490196079))
+                .foregroundColor(.white)
             Text(title)
                 .font(.headline)
-                .foregroundColor(.primary)
+                .foregroundColor(.white)
                 .padding(.leading, 10)
             Spacer()
             }

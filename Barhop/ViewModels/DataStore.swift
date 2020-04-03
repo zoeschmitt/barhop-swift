@@ -10,6 +10,8 @@ import Foundation
 import SwiftUI
 import Combine
 
+//make a different observable object for the user
+
 //class Api {
 //    func getPosts(completion: @escaping ([Post]) -> ()) {
 //        let url = URL(string: "https://uinames.com/api/?amount=5")!
@@ -46,10 +48,14 @@ let friends = [
 ]
 
 let reviews = [
-    Review(review: "bad", title: "bad rating", rating: "1")
+    Review(title: "Great bar!!", review: "They have good drinks.", rating: "5"),
+    Review(title: "Good specials", review: "It's a decent bar with great specials, they could use more bartenders though.", rating: "4"),
+    Review(title: "Good food for a bar", review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.", rating: "5"),
+    Review(title: "Lorem ipsum dolor", review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.", rating: "1"),
 ]
 
 let specials = [
-    Special(title: "$2 shots", description: "$2 shots all night", type: "drink")
+    Special(title: "$2 shots", description: "$2 shots all night", type: "drink"),
+    Special(title: "$4 margs happy hour!", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", type: "drink"),Special(title: "shotssss", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.", type: "drink"),Special(title: "$5 burgers", description: "Come get $5 burgers with your drinks!", type:"food"),Special(title: "Lorem ipsum", description: "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", type: "drink"),Special(title: "Lorem ipsum", description: "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolor sit amet, consectetur adipiscing elit", type: "drink"),Special(title: "Lorem ipsum", description: "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", type: "drink")
 ]
 

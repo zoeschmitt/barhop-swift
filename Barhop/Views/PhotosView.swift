@@ -1,5 +1,5 @@
 //
-//  ReviewsListView.swift
+//  PhotosListView.swift
 //  Barhop
 //
 //  Created by Zoe Schmitt on 2/15/20.
@@ -8,17 +8,14 @@
 
 import SwiftUI
 
-struct ReviewsListView: View {
+struct PhotosView: View {
     var body: some View {
-        
-        List {
-            Text("Reviews!!")
-        }
+            Text("photos!!")
     }
 }
 
-struct ReviewsListView_Previews: PreviewProvider {
+struct PhotosListView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewsListView()
+        PhotosView()
     }
 }

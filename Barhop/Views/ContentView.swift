@@ -19,10 +19,11 @@ struct ContentView: View {
         MGLPointAnnotation(title: "Mapbox", coordinate: .init(latitude: 37.791434, longitude: -122.396267))
     ]
     
-    @State var showCard = false
-    @State var showMenu = false
-    @State var bottomState = CGSize.zero
-    @State var showFull = false
+    @State private var showCard = false
+    @State private var showMenu = false
+    @State private var bottomState = CGSize.zero
+    @State private var showFull = false
+    
     var menu: [Menu] = menuData
     
     var body: some View {
@@ -35,7 +36,7 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.all)
         
             VStack {
-                MenuView(showMenu: $showMenu)
+                MenuView(showMenu: $showMenu, showFull: $showFull)
                 Spacer()
             }
             .padding()
@@ -49,7 +50,7 @@ struct ContentView: View {
             }
             
             BottomCardView(bottomState: $bottomState, showFull: $showFull)
-                .background(Color(#colorLiteral(red: 0.0731209591, green: 0.00916066207, blue: 0.2253128886, alpha: 1)).opacity(showFull ? 1.0 : 0.6))
+                .background(Color(#colorLiteral(red: 0.1501895785, green: 0.1452608109, blue: 0.1475338638, alpha: 1)).opacity(showFull ? 1.0 : 0.6))
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(radius: 20)
                 .offset(x: 0, y: showCard ? 720 : screen.height)
@@ -91,12 +92,11 @@ struct ContentView: View {
             }
             
             SideMenuView(menu: menu)
-                .rotation3DEffect(Angle(degrees: showMenu ? 0 : 60), axis: (x: 0, y: 10.0, z: 0))
-                .animation(.easeInOut(duration: 0.3))
+                .animation(.easeInOut(duration: 0.2))
                 .offset(x: showMenu ? 0 : -UIScreen.main.bounds.width)
                 .onTapGesture {
                     self.showMenu.toggle()
-                }
+            }
         }
     }
 }

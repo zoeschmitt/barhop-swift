@@ -25,9 +25,10 @@ struct Bar: Identifiable {
     let phoneNumber: String
 }
 
-struct Review {
-    let review: String
+struct Review: Identifiable {
+    var id = UUID()
     let title: String
+    let review: String
     let rating: String
     //let user: User
 }
@@ -40,7 +41,8 @@ struct Address {
     let country: String
 }
 
-struct Special {
+struct Special: Identifiable {
+    var id = UUID()
     let title: String
     let description: String
     let type: String
