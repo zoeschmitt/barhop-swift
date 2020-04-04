@@ -11,12 +11,12 @@ import Mapbox
 
 let screen = UIScreen.main.bounds
 
-let addy: Address = Address(street: "124 N Lyndon B Johnson Dr", city: "San Marcos", state: "TX", zip: "78666", country: "United States")
+let addy: Address = Address(street: "124 N Lyndon B Johnson Dr", city: "San Marcos", state: "TX", zip: "78666")
 
 struct ContentView: View {
     
     @State var annotations: [MGLPointAnnotation] = [
-        MGLPointAnnotation(title: "Mapbox", coordinate: .init(latitude: 37.791434, longitude: -122.396267))
+        MGLPointAnnotation(title: "Mapbox", coordinate: .init(latitude: 29.8827, longitude: -97.9406))
     ]
     
     @State private var showCard = false
@@ -29,12 +29,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             
-            Color.gray
-                .edgesIgnoringSafeArea(.all)
+//            Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+//                .edgesIgnoringSafeArea(.all)
             
-            MapView(annotations: $annotations).centerCoordinate(.init(latitude: 37.791293, longitude: -122.396324)).zoomLevel(16)
-            .edgesIgnoringSafeArea(.all)
-        
+            MapView(annotations: $annotations).centerCoordinate(.init(latitude: 29.8827, longitude: -97.9406)).zoomLevel(17)
+                .edgesIgnoringSafeArea(.all)
+                
             VStack {
                 MenuView(showMenu: $showMenu, showFull: $showFull)
                 Spacer()
@@ -50,7 +50,8 @@ struct ContentView: View {
             }
             
             BottomCardView(bottomState: $bottomState, showFull: $showFull)
-                .background(Color(#colorLiteral(red: 0.1501895785, green: 0.1452608109, blue: 0.1475338638, alpha: 1)).opacity(showFull ? 1.0 : 0.6))
+                //.background(Color(#colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)).opacity(showFull ? 1.0 : 0.6))
+                .background(Blur())
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(radius: 20)
                 .offset(x: 0, y: showCard ? 720 : screen.height)
@@ -78,25 +79,21 @@ struct ContentView: View {
                             self.showFull = false
                         }
                     }
-            )
+                )
             
             if showMenu {
-            
-                Color.black.opacity(0.3)
+                Color.black.opacity(0.02)
                 .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         self.showMenu.toggle()
                 }
                 .animation(.none)
-                
             }
             
-            SideMenuView(menu: menu)
+            SideMenuView(menu: menu, showMenu: $showMenu)
                 .animation(.easeInOut(duration: 0.2))
                 .offset(x: showMenu ? 0 : -UIScreen.main.bounds.width)
-                .onTapGesture {
-                    self.showMenu.toggle()
-            }
+
         }
     }
 }

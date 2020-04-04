@@ -15,7 +15,7 @@ struct MenuImage: ViewModifier {
             .foregroundColor(Color.white)
             .font(.system(size: 16, weight: .bold))
             .frame(width: 50, height: 50)
-            .background(Color.white.opacity(0.5))
+            .background(Blur())
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }

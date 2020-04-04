@@ -28,9 +28,9 @@ import Combine
 //}
 
 class DataStore: ObservableObject {
-    @Published var bars: [Bar] = [Bar(barId: "001", name: "Vodka Street", description: "Bar on the square", address: Address(street: "univ drive", city: "San Marcos", state: "TX", zip: "78666", country: "USA"), rating: "2", specials: specials , reviews: reviews, phoneNumber: "210 238 2199"),
-    Bar(barId: "002", name: "Harpers", description: "Original Rooftop Bar", address: Address(street: "univ drive", city: "San Marcos", state: "TX", zip: "78666", country: "USA"), rating: "2",specials: specials , reviews: reviews, phoneNumber: "210 238 2199")]
-    @Published var currentUser = User(id: UUID(), userId: "1", firstName: "Zoe", lastName: "Schmitt", phoneNumber: "(210) - 383 - 7022", email: "zoeschmitt@hotmail.com", friends: friends, bestFriends: [], favoritesBars: [], showLocation: false)
+    @Published var bars: [Bar] = [Bar(name: "Vodka Street", description: "Bar on the square", address: Address(street: "univ drive", city: "San Marcos", state: "TX", zip: "78666"),lat: " ", long: " ", rating: "2", specials: specials , reviews: reviews, phoneNumber: "210 238 2199"),
+    Bar(name: "Harpers", description: "Original Rooftop Bar", address: Address(street: "univ drive", city: "San Marcos", state: "TX", zip: "78666"), lat: " ", long: " ", rating: "2",specials: specials , reviews: reviews, phoneNumber: "210 238 2199")]
+    @Published var currentUser = User(firstName: "Zoe", lastName: "Schmitt", phoneNumber: "(210) - 383 - 7022", email: "zoeschmitt@hotmail.com", friends: friends, favoriteBars: [], showLocation: false)
 
 //    init() {
 //        fetchPosts()
@@ -44,7 +44,7 @@ class DataStore: ObservableObject {
 }
 
 let friends = [
-    User(id: UUID(), userId: "2", firstName: "Jack", lastName: "Smith", phoneNumber: "(210) - 749 - 9129", email: "jacksmith@gmail.com", friends: [], bestFriends: [], favoritesBars: [], showLocation: false)
+    User(firstName: "Jack", lastName: "Smith", phoneNumber: "(210) - 749 - 9129", email: "jacksmith@gmail.com", friends: [], favoriteBars: [], showLocation: false)
 ]
 
 let reviews = [

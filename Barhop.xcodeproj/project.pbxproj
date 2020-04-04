@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9719A251A89545FE0561E396 /* Pods_Barhop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EBD8726B5E1BB3C1E0AB47 /* Pods_Barhop.framework */; };
 		C80AE20D2436FE47003123D3 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80AE20C2436FE47003123D3 /* BarView.swift */; };
+		C817C65224389BF2002F796C /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817C65124389BF2002F796C /* Blur.swift */; };
 		C84472D723F0C64000E50D78 /* BarScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84472D623F0C64000E50D78 /* BarScrollView.swift */; };
 		C8A77C2523F9F1A1007DD8E6 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A77C2423F9F1A1007DD8E6 /* SideMenuView.swift */; };
 		C8CA46E623F9E5E100DC1FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8CA46E523F9E5E100DC1FC8 /* GoogleService-Info.plist */; };
@@ -34,6 +35,7 @@
 		8A2B6EA3917941E6AC1572A8 /* Pods-Barhop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barhop.debug.xcconfig"; path = "Target Support Files/Pods-Barhop/Pods-Barhop.debug.xcconfig"; sourceTree = "<group>"; };
 		C742D8590648E7F49E03249C /* Pods-Barhop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barhop.release.xcconfig"; path = "Target Support Files/Pods-Barhop/Pods-Barhop.release.xcconfig"; sourceTree = "<group>"; };
 		C80AE20C2436FE47003123D3 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		C817C65124389BF2002F796C /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		C84472D623F0C64000E50D78 /* BarScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarScrollView.swift; sourceTree = "<group>"; };
 		C8A77C2423F9F1A1007DD8E6 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C8CA46E523F9E5E100DC1FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				C8D970682436D26400C98EA7 /* SpecialView.swift */,
 				C8F7B9EE23F8BC460071FD13 /* ReviewView.swift */,
 				C8F7B9F023F8BC570071FD13 /* PhotosView.swift */,
+				C817C65124389BF2002F796C /* Blur.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				C8F7B9EF23F8BC460071FD13 /* ReviewView.swift in Sources */,
 				C8DD8BE223E3A81200D92C58 /* Bar.swift in Sources */,
 				C80AE20D2436FE47003123D3 /* BarView.swift in Sources */,
+				C817C65224389BF2002F796C /* Blur.swift in Sources */,
 				C8DD8BDB23E39F3F00D92C58 /* MapView.swift in Sources */,
 				C8D970692436D26400C98EA7 /* SpecialView.swift in Sources */,
 				C8DD8BC923E39EF700D92C58 /* SceneDelegate.swift in Sources */,

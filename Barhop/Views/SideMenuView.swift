@@ -8,11 +8,12 @@
 
 import SwiftUI
 
+
 struct SideMenuView : View {
     
     var menuItems = ["My Account", "Billing", "Team", "Sign out"]
     var menu: [Menu] = menuData
-    var showModal = false
+    @Binding var showMenu: Bool
     var showSettings = false
     
     var body: some View {
@@ -24,16 +25,12 @@ struct SideMenuView : View {
                 }
                 
                 Spacer()
-                
-                HStack {
-                    Text("Version 0.93").foregroundColor(.gray)
-                    Spacer()
-                }
             }
             .padding(30).padding(.top, 30)
-            .background(Color(#colorLiteral(red: 0.1501895785, green: 0.1452608109, blue: 0.1475338638, alpha: 1)))
-            .cornerRadius(15)
-            .padding(.trailing, 70)
+            .background(Blur())
+//            .background(Color(#colorLiteral(red: 0.1490006149, green: 0.1490328908, blue: 0.148996383, alpha: 1)))
+            .cornerRadius(20)
+            .padding(.trailing, 120)
             .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 20)
             .shadow(color: Color.black.opacity(0.1), radius: 30, x: 0, y: 10)
             

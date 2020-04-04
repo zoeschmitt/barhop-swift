@@ -13,11 +13,11 @@ import Combine
 
 struct Bar: Identifiable {
     var id = UUID()
-    let barId: String
     let name: String
     let description: String
     let address: Address
-    //let location: CLLocationCoordinate2D
+    let lat: String
+    let long: String
     let rating: String
     let specials: [Special]
     //let photos: [UIImage]
@@ -38,7 +38,6 @@ struct Address {
     let city: String
     let state: String
     let zip: String
-    let country: String
 }
 
 struct Special: Identifiable {

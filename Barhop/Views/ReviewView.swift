@@ -36,7 +36,7 @@ struct ReviewView: View {
             Spacer()
         }
         .padding(.horizontal)
-        .background(Color.white.opacity(0.2))
+        .background(Color.white.opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         .animation(.none)
     
