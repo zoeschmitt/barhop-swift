@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/macuser/Desktop/Barhop/Barhop/Views/AuthView.swift">
+   </FileRef>
+   <FileRef
       location = "group:Barhop.xcodeproj">
    </FileRef>
    <FileRef
