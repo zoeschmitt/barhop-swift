@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 //custom image modifier
 struct MenuImage: ViewModifier {
@@ -28,39 +29,25 @@ extension View {
 }
 
 struct MenuView: View {
-    @Binding var showMenu: Bool
     @State var showSearch: Bool = false
     @Binding var showFull: Bool
+    @ObservedObject var store = DataStore()
     
     var body: some View {
         HStack {
             Button(action: {
-                self.showMenu.toggle()
-                
-            }) {
-                Image(systemName: "hare.fill")
-                    .customMenuButton()
-            }
-            
-            //expand out search bar??
-            if showSearch {
-                
-                
-            } else {
-                Spacer()
-            }
-            
-            Button(action: {
-                print("hi")
+                print("search")
                 
             }) {
                 Image(systemName: "magnifyingglass")
                     .customMenuButton()
             }
             
+            Spacer()
+            
             Button(action: {
-                print("hi")
-                
+                self.store.currentUser.showLocation.toggle()
+                print("location toggled to: \(self.store.currentUser.showLocation)")
             }) {
                 Image(systemName: "eye.fill")
                     .customMenuButton()
@@ -69,8 +56,4 @@ struct MenuView: View {
         .disabled(showFull)
     }
 }
-//struct MenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuView()
-//    }
-//}
+

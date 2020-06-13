@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ReviewView: View {
+struct ReviewContainerView: View {
     var review: Review
     
     var body: some View {
@@ -43,8 +43,3 @@ struct ReviewView: View {
     }
 }
 
-//struct ReviewsListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ReviewView()
-//    }
-//}

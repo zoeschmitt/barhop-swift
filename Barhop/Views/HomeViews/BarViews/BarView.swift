@@ -10,9 +10,10 @@ import SwiftUI
 
 struct BarView: View {
     
-    @ObservedObject var store = DataStore()
+    //@Binding var bar: Bar
     @Binding var showFull: Bool
     @State var currentList: Int = 0
+    @ObservedObject var store = DataStore()
     
 var body: some View {
    
@@ -37,11 +38,6 @@ var body: some View {
     }
 }
 
-//struct BottomCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BottomCardView(bottomState: CGSize, showFull: true)
-//    }
-//}
 
 struct MyRectangle : View {
     var body: some View {
@@ -125,6 +121,7 @@ struct BarInfoView: View {
                     Image(systemName: "heart.fill")
                         .font(.system(size: 16, weight: .bold))
                         .frame(width: 30, height: 30)
+                        
                     
                     Text("5,998")
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -134,7 +131,6 @@ struct BarInfoView: View {
                 Text("\(addy.street)\n \(addy.city), \(addy.state) \(addy.zip)")
                     .font(.system(size: 14, weight: .regular, design: .rounded))
             }
-            .foregroundColor(.white)
             .multilineTextAlignment(.leading)
             
             Spacer()

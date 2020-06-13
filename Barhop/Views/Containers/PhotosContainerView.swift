@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PhotosView: View {
+struct PhotosContainerView: View {
     var body: some View {
             Text("photos!!")
     }
@@ -16,6 +16,6 @@ struct PhotosView: View {
 
 struct PhotosListView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotosView()
+        PhotosContainerView()
     }
 }

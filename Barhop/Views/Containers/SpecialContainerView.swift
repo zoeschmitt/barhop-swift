@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SpecialView: View {
+struct SpecialContainerView: View {
     var special: Special
     var body: some View {
         
@@ -30,7 +30,7 @@ struct SpecialView: View {
                     
                 Text(special.description)
                     .font(.system(size: 12, weight: .regular, design: .rounded))
-                    .lineLimit(3)
+                    .lineLimit(7)
             }
             .foregroundColor(Color.white)
             .multilineTextAlignment(.leading)

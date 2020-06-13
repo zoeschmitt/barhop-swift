@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Mapbox
+import Combine
 
 extension MGLPointAnnotation {
     convenience init(title: String, coordinate: CLLocationCoordinate2D) {
@@ -19,8 +20,9 @@ extension MGLPointAnnotation {
 
 struct MapView: UIViewRepresentable {
     @Binding var annotations: [MGLPointAnnotation]
+   
 
-    private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/zoeschmitt/ck8jpt88l0ewa1ilfqvu583zh"))
+    private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/zoeschmitt/ckb1eu1ye02v61imja1o6vjaj"))
     
     // MARK: - Configuring UIViewRepresentable protocol
     
@@ -68,6 +70,7 @@ struct MapView: UIViewRepresentable {
     // MARK: - Implementing MGLMapViewDelegate
     
     final class Coordinator: NSObject, MGLMapViewDelegate {
+         @ObservedObject var store = DataStore()
         var control: MapView
         
         init(_ control: MapView) {
@@ -76,7 +79,8 @@ struct MapView: UIViewRepresentable {
         
         func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
             
-            mapView.showsUserLocation = true
+            mapView.showsUserLocation = store.currentUser.showLocation
+           
         }
         
         func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {

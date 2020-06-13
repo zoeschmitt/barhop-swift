@@ -14,10 +14,10 @@ struct User: Identifiable {
     var id = UUID()
     let firstName: String
     let lastName: String
-    let phoneNumber: String
-    let email: String
-    let friends: [User]
-    let favoriteBars: [Bar]
-    let showLocation: Bool
+    var phoneNumber: String
+    var email: String
+    var friends: [User]
+    var favoriteBars: [Bar]
+    var showLocation: Bool
    // let location: CLLocationCoordinate2D
 }

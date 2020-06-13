@@ -16,14 +16,14 @@ struct BarScrollView: View {
         ScrollView(.vertical, showsIndicators: false) {
             if currentList == 1 {
                 ForEach(bar.reviews.indices, id: \.self) { index in
-                    ReviewView(review: self.bar.reviews[index])
+                    ReviewContainerView(review: self.bar.reviews[index])
                 }
             }
             else if currentList == 2 {
                 
             } else {
                 ForEach(bar.specials.indices, id: \.self) { index in
-                    SpecialView(special: self.bar.specials[index])
+                    SpecialContainerView(special: self.bar.specials[index])
                 }
             }
             
@@ -33,9 +33,3 @@ struct BarScrollView: View {
     }
 }
 
-
-//struct barListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SpecialsList()
-//    }
-//}

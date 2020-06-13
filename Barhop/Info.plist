@@ -58,7 +58,13 @@
 	</array>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1Ijoiem9lc2NobWl0dCIsImEiOiJjazdmYTQ0ZzEwMHM3M2pudHVlYWx4NnVtIn0.eH7ZgE7yA3ROWydBN1uSug</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Let us use ur location bitch!!</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Let us use ur location bitch!!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>&quot;Let us use ur location bitch!!&quot;</string>
+	<string>Let us use ur location bitch!!</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Dark</string>
 </dict>
 </plist>
