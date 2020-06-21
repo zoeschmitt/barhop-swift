@@ -7,15 +7,22 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 struct BarView: View {
+    //Variables
+    var selectedCategory = "reviews"
     
     //@Binding var bar: Bar
     @Binding var showFull: Bool
     @State var currentList: Int = 0
-    @ObservedObject var store = DataStore()
+    @State var categorySelected = 0
+    @State var username = ""
+    @State var reviewTxt = ""
     
 var body: some View {
+    NavigationView {
    
         VStack(alignment: .leading, spacing: 10) {
             
@@ -27,14 +34,42 @@ var body: some View {
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, maxHeight: 100, alignment: .leading)
             
-            ListButtons(currentList: $currentList)
-                .padding(.bottom, 20)
+   //         ListButtons(currentList: $currentList) //casualty of segmented control
+   //         .padding(.bottom, 20)
+            //Segmented Controller
+            Picker(selection: $categorySelected, label: Text("")) {
+                Text("Specials").tag(0)
+                Text("Reviews").tag(1)
+                Text("Photos").tag(2)
+            }.pickerStyle(SegmentedPickerStyle())
             
-            BarScrollView(bar: store.bars[0], currentList: $currentList)
-
+            TextField("Username", text: $username)
+            
+            TextField("Add Review Here", text: $reviewTxt)
+            
+            Button(action: {
+                Firestore.firestore().collection("reviews").addDocument(data: [
+                    "numComments" : 0,
+                    "numLikes": 0,
+                    "reviewTxt": self.reviewTxt,
+                    "timeStamp" : FieldValue.serverTimestamp(),
+                    "username" : self.username
+                ]) { (err) in
+                    if let err = err {
+                        debugPrint("Error adding document: \(err)")
+                    } else {
+                        return //popViewController TODO
+                    }
+                }
+                }) {
+                    Text("Post")
+            }
+            
+            
         }
         .frame(maxWidth: .infinity)
     .padding(.horizontal, 15)
+        }
     }
 }
 
@@ -51,53 +86,61 @@ struct MyRectangle : View {
     }
 }
 
-struct ListButtons: View {
-    
-    @Binding var currentList: Int
-    @State var line: CGFloat = CGFloat.zero
-    private let listNames = ["Specials", "Reviews", "Photos"]
-    
-    var body: some View {
-        VStack {
-            HStack(alignment: .top) {
-                    Button(action: {
-                        self.currentList = 0
-                    }) {
-                        Text("Specials")
-                            .foregroundColor(self.currentList == 0 ? Color.white : Color.white.opacity(0.2))
-                            .font(.system(size: 24, weight: .bold, design: .rounded))
-                            .overlay(self.currentList == 0 ? MyRectangle() : nil, alignment: .leading)
-                    }
-
-                    Spacer()
-
-                    Button(action: {
-                        self.currentList = 1
-                    }) {
-                        Text("Reviews")
-                            .foregroundColor(self.currentList == 1 ? Color.white : Color.white.opacity(0.2))
-                            .font(.system(size: 24, weight: .bold, design: .rounded))
-                            .overlay(self.currentList == 1 ? MyRectangle() : nil)
-                    }
-
-                    Spacer()
-
-                    Button(action: {
-                        self.currentList = 2
-                    }) {
-                        Text("Photos")
-                            .foregroundColor(self.currentList == 2 ? Color.white : Color.white.opacity(0.2))
-                            .font(.system(size: 24, weight: .bold, design: .rounded))
-                            .overlay(self.currentList == 2 ? MyRectangle() : nil)
-                    }
-                    
-                }
-                .padding(.top)
-                .lineSpacing(.infinity)
-                .animation(.none)
-        }
-    }
-}
+//struct ListButtons: View {
+//
+//    @Binding var currentList: Int
+//    @State var line: CGFloat = CGFloat.zero
+//    private let listNames = ["Specials", "Reviews", "Photos"]
+//
+//    var body: some View {
+//        VStack {
+//            HStack(alignment: .top) {
+//                    Button(action: {
+//                        self.currentList = 0
+//                    }) {
+//                        Text("Specials")
+//                            .foregroundColor(self.currentList == 0 ? Color.white : Color.white.opacity(0.2))
+//                            .font(.system(size: 24, weight: .bold, design: .rounded))
+//                            .overlay(self.currentList == 0 ? MyRectangle() : nil, alignment: .leading)
+//                    }
+//
+//
+//                    Spacer()
+//                VStack{
+//                    Button(action: {
+//                        self.currentList = 1
+//                    }) {
+//                        Text("Reviews")
+//                            .foregroundColor(self.currentList == 1 ? Color.white : Color.white.opacity(0.2))
+//                            .font(.system(size: 24, weight: .bold, design: .rounded))
+//                            .overlay(self.currentList == 1 ? MyRectangle() : nil)
+//                        Button(action: {
+//                            print("Weee")
+//                        }) {
+//                            Text("Push")
+//                        }
+//                    }
+//                }
+//
+//                    Spacer()
+//
+//                    Button(action: {
+//                        self.currentList = 2
+//                    }) {
+//                        Text("Photos")
+//                            .foregroundColor(self.currentList == 2 ? Color.white : Color.white.opacity(0.2))
+//                            .font(.system(size: 24, weight: .bold, design: .rounded))
+//                            .overlay(self.currentList == 2 ? MyRectangle() : nil)
+//                    }
+//
+//                }
+//                .padding(.top)
+//                .lineSpacing(.infinity)
+//                .animation(.none)
+//        }
+//
+//    }
+//}
 
 struct BarInfoView: View {
     @Binding var showFull: Bool

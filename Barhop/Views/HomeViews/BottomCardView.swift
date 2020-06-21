@@ -14,7 +14,7 @@ struct BottomCardView: View {
     @Binding var showFull: Bool
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: CGFloat(20)) {
         Rectangle()
             .frame(width: 60, height: 6)
             .cornerRadius(3)

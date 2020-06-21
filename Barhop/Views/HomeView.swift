@@ -18,7 +18,6 @@ struct HomeView: View {
     @State private var showMenu = false
     @State private var bottomState = CGSize.zero
     @Binding var showFull: Bool
-    @ObservedObject var store = DataStore()
 
     var body: some View {
         

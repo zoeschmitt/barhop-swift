@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var store = DataStore()
     @State var selected: String = "friends"
     @State var friendsWidth: CGFloat = .zero
     @State var favBarsWidth: CGFloat = .zero
@@ -20,7 +19,6 @@ struct ProfileView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 HStack {
-                    TitleWithSub(title: store.currentUser.firstName + " " + store.currentUser.lastName, subTitle: "\(store.currentUser.friends.count) Friend")
                     Spacer()
                     
                     NavigationLink(

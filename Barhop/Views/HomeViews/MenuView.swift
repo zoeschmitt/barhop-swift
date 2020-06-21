@@ -31,7 +31,6 @@ extension View {
 struct MenuView: View {
     @State var showSearch: Bool = false
     @Binding var showFull: Bool
-    @ObservedObject var store = DataStore()
     
     var body: some View {
         HStack {
@@ -46,8 +45,6 @@ struct MenuView: View {
             Spacer()
             
             Button(action: {
-                self.store.currentUser.showLocation.toggle()
-                print("location toggled to: \(self.store.currentUser.showLocation)")
             }) {
                 Image(systemName: "eye.fill")
                     .customMenuButton()

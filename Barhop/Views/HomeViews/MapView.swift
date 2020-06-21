@@ -70,7 +70,6 @@ struct MapView: UIViewRepresentable {
     // MARK: - Implementing MGLMapViewDelegate
     
     final class Coordinator: NSObject, MGLMapViewDelegate {
-         @ObservedObject var store = DataStore()
         var control: MapView
         
         init(_ control: MapView) {
@@ -78,8 +77,8 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-            
-            mapView.showsUserLocation = store.currentUser.showLocation
+            //store no longer exists - jv
+  //          mapView.showsUserLocation = store.currentUser.showLocation
            
         }
         

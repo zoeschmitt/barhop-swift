@@ -8,6 +8,8 @@ target 'Barhop' do
 
   # Pods for Barhop
   pod 'Firebase/Analytics'
-	pod 'Mapbox-iOS-SDK', '~> 5.7'
+  pod 'Mapbox-iOS-SDK', '~> 5.7'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   
 end
