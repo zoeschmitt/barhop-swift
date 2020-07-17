@@ -5,14 +5,15 @@
 //  Created by Zoe Schmitt on 4/3/20.
 //  Copyright © 2020 Zoe Schmitt. All rights reserved.
 //
-
+ 
 import SwiftUI
 import Firebase
-
-
+ 
+ 
 struct BarView: View {
     //Variables
     var selectedCategory = "reviews"
+    @State var selected = 0
     
     //@Binding var bar: Bar
     @Binding var showFull: Bool
@@ -23,7 +24,8 @@ struct BarView: View {
     
 var body: some View {
     NavigationView {
-   
+   ScrollView(.vertical, showsIndicators: false) {
+        
         VStack(alignment: .leading, spacing: 10) {
             
             BarInfoView(showFull: $showFull)
@@ -34,17 +36,30 @@ var body: some View {
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, maxHeight: 100, alignment: .leading)
             
-   //         ListButtons(currentList: $currentList) //casualty of segmented control
-   //         .padding(.bottom, 20)
             //Segmented Controller
-            Picker(selection: $categorySelected, label: Text("")) {
-                Text("Specials").tag(0)
-                Text("Reviews").tag(1)
-                Text("Photos").tag(2)
-            }.pickerStyle(SegmentedPickerStyle())
+//            Picker(selection: $categorySelected, label: Text("")) {
+//                Text("Specials").tag(0)
+//                Text("Reviews").tag(1)
+//                Text("Photos").tag(2)
+//            }.pickerStyle(SegmentedPickerStyle())
+            
+            
+                Topbar(selected: self.$selected)
+            
+            if self.selected == 0 {
+                SpecialsView()
+            }
+            if self.selected == 1 {
+                ReviewsView()
+            }
+            if self.selected == 2 {
+                PhotosView()
+            }
+                
+                Spacer()
+             //.background(Color.white).edgesIgnoringSafeArea(.all)  (code in video)
             
             TextField("Username", text: $username)
-            
             TextField("Add Review Here", text: $reviewTxt)
             
             Button(action: {
@@ -71,9 +86,10 @@ var body: some View {
     .padding(.horizontal, 15)
         }
     }
+    }
 }
-
-
+ 
+ 
 struct MyRectangle : View {
     var body: some View {
         GeometryReader { g in
@@ -85,63 +101,8 @@ struct MyRectangle : View {
         }
     }
 }
-
-//struct ListButtons: View {
-//
-//    @Binding var currentList: Int
-//    @State var line: CGFloat = CGFloat.zero
-//    private let listNames = ["Specials", "Reviews", "Photos"]
-//
-//    var body: some View {
-//        VStack {
-//            HStack(alignment: .top) {
-//                    Button(action: {
-//                        self.currentList = 0
-//                    }) {
-//                        Text("Specials")
-//                            .foregroundColor(self.currentList == 0 ? Color.white : Color.white.opacity(0.2))
-//                            .font(.system(size: 24, weight: .bold, design: .rounded))
-//                            .overlay(self.currentList == 0 ? MyRectangle() : nil, alignment: .leading)
-//                    }
-//
-//
-//                    Spacer()
-//                VStack{
-//                    Button(action: {
-//                        self.currentList = 1
-//                    }) {
-//                        Text("Reviews")
-//                            .foregroundColor(self.currentList == 1 ? Color.white : Color.white.opacity(0.2))
-//                            .font(.system(size: 24, weight: .bold, design: .rounded))
-//                            .overlay(self.currentList == 1 ? MyRectangle() : nil)
-//                        Button(action: {
-//                            print("Weee")
-//                        }) {
-//                            Text("Push")
-//                        }
-//                    }
-//                }
-//
-//                    Spacer()
-//
-//                    Button(action: {
-//                        self.currentList = 2
-//                    }) {
-//                        Text("Photos")
-//                            .foregroundColor(self.currentList == 2 ? Color.white : Color.white.opacity(0.2))
-//                            .font(.system(size: 24, weight: .bold, design: .rounded))
-//                            .overlay(self.currentList == 2 ? MyRectangle() : nil)
-//                    }
-//
-//                }
-//                .padding(.top)
-//                .lineSpacing(.infinity)
-//                .animation(.none)
-//        }
-//
-//    }
-//}
-
+ 
+ 
 struct BarInfoView: View {
     @Binding var showFull: Bool
     
@@ -186,3 +147,97 @@ struct BarInfoView: View {
         }
     }
 }
+ 
+struct Topbar: View {
+    @Binding var selected : Int
+    
+    var body : some View {
+        
+        
+        HStack {
+            Button(action: {
+                
+                self.selected = 0
+                
+            }) {
+                Text("Specials")
+                    .frame(width: 25, height: 25)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 30)
+                    .background(self.selected == 0 ? Color.white : Color.clear)
+                    .clipShape(Capsule())
+            }
+            .foregroundColor(self.selected == 0 ? .pink : .white)
+            
+            Button(action: {
+                
+                self.selected = 1
+                
+            }) {
+                Text("Reviews")
+                    .frame(width: 25, height: 25)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 30)
+                    .background(self.selected == 1 ? Color.white : Color.clear)
+                    .clipShape(Capsule())
+            }
+            .foregroundColor(self.selected == 1 ? .pink : .white)
+            
+            Button(action: {
+                
+                self.selected = 2
+                
+            }) {
+                Text("Photos")
+                    .frame(width: 25, height: 25)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 30)
+                    .background(self.selected == 2 ? Color.white : Color.clear)
+                    .clipShape(Capsule())
+            }
+            .foregroundColor(self.selected == 2 ? .pink : .white)
+        }.padding(8)
+            .background(Color.gray)
+            .clipShape(Capsule())
+    }
+}
+ 
+struct SpecialsView : View {
+    var body : some View {
+        
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 15){
+                ForEach(1...8, id: \.self){ i in
+                    
+                    HStack(spacing: 15){
+                        Text("These is my specials")
+                        
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("More text")
+                            Text("Texty text")
+                            } .padding()
+                            .background(Color.white)
+                    }
+                    
+                }
+            } .padding()
+        }
+    }
+}
+ 
+struct ReviewsView : View {
+    @State var username = ""
+    @State var reviewTxt = ""
+    var body : some View {
+        Text("These are the reviews")
+    }
+}
+ 
+struct PhotosView : View {
+    @State var username = ""
+    @State var reviewTxt = ""
+    var body : some View {
+        Text("These are the photos")
+    }
+}
+
