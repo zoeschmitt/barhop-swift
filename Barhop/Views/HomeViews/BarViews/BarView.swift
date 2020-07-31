@@ -8,14 +8,12 @@
  
 import SwiftUI
 import Firebase
- 
- 
+
 struct BarView: View {
     //Variables
     var selectedCategory = "reviews"
     @State var selected = 0
     
-    //@Binding var bar: Bar
     @Binding var showFull: Bool
     @State var currentList: Int = 0
     @State var categorySelected = 0
@@ -23,7 +21,9 @@ struct BarView: View {
     @State var reviewTxt = ""
     
 var body: some View {
+    
     NavigationView {
+        
    ScrollView(.vertical, showsIndicators: false) {
         
         VStack(alignment: .leading, spacing: 10) {
@@ -35,15 +35,7 @@ var body: some View {
             .font(.system(size: 16, weight: .regular, design: .rounded))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, maxHeight: 100, alignment: .leading)
-            
-            //Segmented Controller
-//            Picker(selection: $categorySelected, label: Text("")) {
-//                Text("Specials").tag(0)
-//                Text("Reviews").tag(1)
-//                Text("Photos").tag(2)
-//            }.pickerStyle(SegmentedPickerStyle())
-            
-            
+        
                 Topbar(selected: self.$selected)
             
             if self.selected == 0 {
@@ -57,7 +49,6 @@ var body: some View {
             }
                 
                 Spacer()
-             //.background(Color.white).edgesIgnoringSafeArea(.all)  (code in video)
             
             TextField("Username", text: $username)
             TextField("Add Review Here", text: $reviewTxt)
@@ -79,8 +70,6 @@ var body: some View {
                 }) {
                     Text("Post")
             }
-            
-            
         }
         .frame(maxWidth: .infinity)
     .padding(.horizontal, 15)
@@ -210,7 +199,7 @@ struct SpecialsView : View {
                 ForEach(1...8, id: \.self){ i in
                     
                     HStack(spacing: 15){
-                        Text("These is my specials")
+                        Text("These are my specials")
                         
                         VStack(alignment: .leading, spacing: 12) {
                             Text("More text")
@@ -228,6 +217,7 @@ struct SpecialsView : View {
 struct ReviewsView : View {
     @State var username = ""
     @State var reviewTxt = ""
+    
     var body : some View {
         Text("These are the reviews")
     }

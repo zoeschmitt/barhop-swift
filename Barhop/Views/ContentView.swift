@@ -132,7 +132,7 @@ struct Login: View {
                                        self.visible.toggle()
                                    }) {
                                     
-                                       Image(systemName: self.visible ? "eye.slash.fill": "eye.fill")
+                                       Image(systemName: self.visible ? "eye.fill" : "eye.slash.fill")
                                            .foregroundColor(Color.white)
                                    }
                                    
@@ -288,7 +288,7 @@ struct SignUp: View {
                             Button(action: {
                                 self.visible.toggle()
                             }) {
-                                Image(systemName: self.visible ? "eye.slash.fill": "eye.fill")
+                                Image(systemName: self.visible ? "eye.fill": "eye.slash.fill")
                                     .foregroundColor(Color.white)
                             }
                             
@@ -308,7 +308,7 @@ struct SignUp: View {
                             Button(action: {
                                 self.revisible.toggle()
                             }) {
-                                Image(systemName: self.revisible ? "eye.slash.fill": "eye.fill")
+                                Image(systemName: self.revisible ? "eye.fill": "eye.slash.fill")
                                     .foregroundColor(Color.white)
                             }
                             
