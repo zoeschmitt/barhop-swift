@@ -6,7 +6,6 @@
 //  Copyright © 2020 Zoe Schmitt. All rights reserved.
 //
 import SwiftUI
-import Mapbox
 import Firebase
 
 let screen = UIScreen.main.bounds
@@ -14,6 +13,9 @@ let screen = UIScreen.main.bounds
 let addy: Address = Address(street: "124 N Lyndon B Johnson Dr", city: "San Marcos", state: "TX", zip: "78666")
 
 struct ContentView: View  {
+    
+    private var locationManager = LocationManager()
+    
     var body: some View {
         Home()
     }
@@ -126,7 +128,7 @@ struct Login: View {
                                            .autocapitalization(.none)
                                        }
                                    }
-                                   
+                                
                                    Button(action: {
                                     
                                        self.visible.toggle()

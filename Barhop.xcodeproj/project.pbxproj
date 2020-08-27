@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63C5C02C24F5DD82003910D4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5C02B24F5DD82003910D4 /* Coordinator.swift */; };
+		63C5C03024F762A7003910D4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5C02F24F762A7003910D4 /* LocationManager.swift */; };
 		9719A251A89545FE0561E396 /* Pods_Barhop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EBD8726B5E1BB3C1E0AB47 /* Pods_Barhop.framework */; };
 		C80AE20D2436FE47003123D3 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80AE20C2436FE47003123D3 /* BarView.swift */; };
 		C810497B249488A200277E96 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = C810497A249488A200277E96 /* Title.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		41EBD8726B5E1BB3C1E0AB47 /* Pods_Barhop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barhop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63C5C02B24F5DD82003910D4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		63C5C02F24F762A7003910D4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8A2B6EA3917941E6AC1572A8 /* Pods-Barhop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barhop.debug.xcconfig"; path = "Target Support Files/Pods-Barhop/Pods-Barhop.debug.xcconfig"; sourceTree = "<group>"; };
 		C742D8590648E7F49E03249C /* Pods-Barhop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barhop.release.xcconfig"; path = "Target Support Files/Pods-Barhop/Pods-Barhop.release.xcconfig"; sourceTree = "<group>"; };
 		C80AE20C2436FE47003123D3 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
@@ -98,6 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63C5C02A24F5DD71003910D4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				63C5C02B24F5DD82003910D4 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		63C5C02E24F76297003910D4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				63C5C02F24F762A7003910D4 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		6A31A26CFEC04E7598758813 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +210,8 @@
 		C8DD8BC523E39EF700D92C58 /* Barhop */ = {
 			isa = PBXGroup;
 			children = (
+				63C5C02E24F76297003910D4 /* Managers */,
+				63C5C02A24F5DD71003910D4 /* Coordinator */,
 				C8E9CFB3243669C500F9C581 /* Models */,
 				C8DD8BDD23E3A7AF00D92C58 /* Views */,
 				C8DD8BDC23E3A7A800D92C58 /* ViewModels */,
@@ -375,6 +397,7 @@
 				C810498124952A0A00277E96 /* ProfileView.swift in Sources */,
 				C8F7B9F323F8C4490071FD13 /* DataStore.swift in Sources */,
 				C843E23424931F23008FDB11 /* MessagesView.swift in Sources */,
+				63C5C03024F762A7003910D4 /* LocationManager.swift in Sources */,
 				C81049852495301500277E96 /* FriendContainerView.swift in Sources */,
 				C8328D5C24947472002089FF /* CreateAccountView.swift in Sources */,
 				C810497F249488F700277E96 /* Setting.swift in Sources */,
@@ -395,6 +418,7 @@
 				C810497D249488D800277E96 /* SettingsButton.swift in Sources */,
 				C8328D592494743C002089FF /* SignInView.swift in Sources */,
 				C8D970692436D26400C98EA7 /* SpecialContainerView.swift in Sources */,
+				63C5C02C24F5DD82003910D4 /* Coordinator.swift in Sources */,
 				C8328D6024947819002089FF /* BackButton.swift in Sources */,
 				C8DD8BC923E39EF700D92C58 /* SceneDelegate.swift in Sources */,
 				C8DD8BE023E3A7FC00D92C58 /* User.swift in Sources */,

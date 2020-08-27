@@ -11,9 +11,9 @@ import Mapbox
 import Firebase 
 
 struct HomeView: View {
-    @State var annotations: [MGLPointAnnotation] = [
-        MGLPointAnnotation(title: "Mapbox", coordinate: .init(latitude: 29.8827, longitude: -97.9406))
-    ]
+//    @State var annotations: [MGLPointAnnotation] = [
+//        MGLPointAnnotation(title: "Mapbox", coordinate: .init(latitude: 29.8827, longitude: -97.9406))
+//    ]
     
     @Binding var showCard: Bool
     @State private var showMenu = false
@@ -24,8 +24,10 @@ struct HomeView: View {
         
         ZStack {
             
-            MapView(annotations: $annotations).centerCoordinate(.init(latitude: 29.8827, longitude: -97.9406)).zoomLevel(17)
-                .edgesIgnoringSafeArea(.all)
+            MapView()
+            
+//            MapView(annotations: $annotations).centerCoordinate(.init(latitude: 29.8827, longitude: -97.9406)).zoomLevel(17)
+//                .edgesIgnoringSafeArea(.all)
             
             VStack {
                 
@@ -89,11 +91,6 @@ struct Homescreen : View {
     var body: some View {
         
         VStack {
-            
-            Text("Logged Successfully")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black.opacity(0.7))
             
             Button(action: {
                 
