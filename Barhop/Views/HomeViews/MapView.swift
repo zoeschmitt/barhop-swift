@@ -7,112 +7,77 @@
 //
 
 import SwiftUI
-import Mapbox
 import Combine
 import MapKit
+import Firebase
 
-struct MapView: UIViewRepresentable {
+
+struct mapView: UIViewRepresentable {
     
-    func makeUIView(context: Context) -> MKMapView {
-        let map = MKMapView()
+    var name = ""
+    
+    func makeCoordinator() -> mapView.Coordinator {
+        
+        return mapView.Coordinator(parent1: self)
+    }
+    
+    
+    let map = MKMapView()
+    let manager = CLLocationManager()
+    
+    func makeUIView(context: UIViewRepresentableContext<mapView>) -> MKMapView {
+        
+        manager.delegate = context.coordinator
+        manager.startUpdatingLocation()
         map.showsUserLocation = true
-        map.delegate = context.coordinator
+        manager.requestWhenInUseAuthorization()
         return map
     }
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<mapView>) {
+        
     }
     
-    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
+    class Coordinator : NSObject, CLLocationManagerDelegate {
         
+        var parent : mapView
+        
+        init(parent1 : mapView) {
+            
+            parent = parent1
+        }
+        
+        func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+            
+            if status == .denied {
+                
+                print("Denied")
+            }
+            if status == .authorizedWhenInUse {
+                
+                print("Authorized")
+            }
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            
+            let last = locations.last
+            
+            let db = Firestore.firestore()
+            
+            db.collection("locations").document("sharing").setData(["updates" : [self.parent.name :  GeoPoint(latitude: (last?.coordinate.latitude)!, longitude: (last?.coordinate.longitude)!)]]) { (err) in
+                
+                if err != nil {
+                    
+                    print((err?.localizedDescription)!)
+                    return
+                }
+                print("success")
+                
+            }
+        }
     }
     
 }
 
 
-
-//extension MGLPointAnnotation {
-//    convenience init(title: String, coordinate: CLLocationCoordinate2D) {
-//        self.init()
-//        self.title = title
-//        self.coordinate = coordinate
-//    }
-//}
-//
-//struct MapView: UIViewRepresentable {
-//    @Binding var annotations: [MGLPointAnnotation]
-//
-//
-//    private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/zoeschmitt/ckb1eu1ye02v61imja1o6vjaj"))
-//
-//    // MARK: - Configuring UIViewRepresentable protocol
-//
-//    func makeUIView(context: UIViewRepresentableContext<MapView>) -> MGLMapView {
-//
-//        mapView.delegate = context.coordinator
-//        return mapView
-//    }
-//
-//    func updateUIView(_ uiView: MGLMapView, context: UIViewRepresentableContext<MapView>) {
-//        updateAnnotations()
-//    }
-//
-//    func makeCoordinator() -> MapView.Coordinator {
-//        Coordinator(self)
-//    }
-//
-//    // MARK: - Configuring MGLMapView
-//
-//    func styleURL(_ styleURL: URL) -> MapView {
-//        mapView.styleURL = styleURL
-//        return self
-//    }
-//
-//    func centerCoordinate(_ centerCoordinate: CLLocationCoordinate2D) -> MapView {
-//        mapView.centerCoordinate = centerCoordinate
-//        return self
-//    }
-//
-//    func zoomLevel(_ zoomLevel: Double) -> MapView {
-//        mapView.zoomLevel = zoomLevel
-//
-//        return self
-//    }
-//
-//
-//
-//    private func updateAnnotations() {
-//        if let currentAnnotations = mapView.annotations {
-//            mapView.removeAnnotations(currentAnnotations)
-//        }
-//        mapView.addAnnotations(annotations)
-//    }
-//
-//    // MARK: - Implementing MGLMapViewDelegate
-//
-//    final class Coordinator: NSObject, MGLMapViewDelegate {
-//        var control: MapView
-//
-//        init(_ control: MapView) {
-//            self.control = control
-//        }
-//
-//        func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-//            //store no longer exists - jv
-//  //          mapView.showsUserLocation = store.currentUser.showLocation
-//
-//        }
-//
-//        func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-//            return nil
-//        }
-//
-//        func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-//            return true
-//        }
-//
-//    }
-//
-//}
-//

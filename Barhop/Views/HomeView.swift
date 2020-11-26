@@ -18,16 +18,30 @@ struct HomeView: View {
     @Binding var showCard: Bool
     @State private var showMenu = false
     @State private var bottomState = CGSize.zero
+    @State var name = ""
     @Binding var showFull: Bool
 
     var body: some View {
         
         ZStack {
             
-            MapView()
-            
-//            MapView(annotations: $annotations).centerCoordinate(.init(latitude: 29.8827, longitude: -97.9406)).zoomLevel(17)
-//                .edgesIgnoringSafeArea(.all)
+            //location sharing add signIn/SignUp here
+            NavigationView {
+                
+                VStack {
+                    
+                    TextField("Enter name", text: $name).textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    if name != "" {
+                        
+                        NavigationLink(destination: mapView(name: self.name).navigationBarTitle("", displayMode: .inline)) {
+                            
+                            Text("Share location")
+                        }
+                    }
+                    }.padding()
+                    .navigationBarTitle("Location Sharing")
+            }
             
             VStack {
                 
