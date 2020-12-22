@@ -8,17 +8,15 @@
 
 import SwiftUI
 import Mapbox
-import Firebase 
+import Firebase
 
 struct HomeView: View {
-//    @State var annotations: [MGLPointAnnotation] = [
-//        MGLPointAnnotation(title: "Mapbox", coordinate: .init(latitude: 29.8827, longitude: -97.9406))
-//    ]
     
     @Binding var showCard: Bool
     @State private var showMenu = false
     @State private var bottomState = CGSize.zero
     @State var name = ""
+    @ObservedObject var obs = observer()
     @Binding var showFull: Bool
 
     var body: some View {
@@ -26,6 +24,7 @@ struct HomeView: View {
         ZStack {
             
             //location sharing add signIn/SignUp here
+//            VStack {
             NavigationView {
                 
                 VStack {
@@ -34,7 +33,7 @@ struct HomeView: View {
                     
                     if name != "" {
                         
-                        NavigationLink(destination: mapView(name: self.name).navigationBarTitle("", displayMode: .inline)) {
+                        NavigationLink(destination: mapView(name: self.name, geopoints: self.obs.data["data"] as! [String : GeoPoint]).navigationBarTitle("", displayMode: .inline)) {
                             
                             Text("Share location")
                         }
@@ -42,18 +41,19 @@ struct HomeView: View {
                     }.padding()
                     .navigationBarTitle("Location Sharing")
             }
+                            VStack {
+                
+                                Homescreen()
+                
+                                Spacer()
+                
+                                MenuView(showFull: $showFull)
+                                    .padding(.top, 25)
+                                Spacer()
+                            }
+                
+ //           }
             
-            VStack {
-                
-                Homescreen()
-                
-                Spacer()
-                
-                MenuView(showFull: $showFull)
-                    .padding(.top, 25)
-                Spacer()
-            }
-            .padding()
             
             VStack {
                 //this toggle will be replaced by any bars or ppl they press on
@@ -98,7 +98,6 @@ struct HomeView: View {
         
     }
 }
-
 
 struct Homescreen : View {
     

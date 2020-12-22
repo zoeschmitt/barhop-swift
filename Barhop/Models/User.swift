@@ -10,14 +10,20 @@ import Foundation
 import CoreLocation
 import Combine
 
-struct User: Identifiable {
-    var id = UUID()
-    let firstName: String
-    let lastName: String
-    var phoneNumber: String
-    var email: String
-    var friends: [User]
-    var favoriteBars: [Bar]
-    var showLocation: Bool
-   // let location: CLLocationCoordinate2D
+struct userInfo {
+    
+    var email = ""
+    
 }
+
+//struct User: Identifiable {
+//    var id = UUID()
+//    let firstName: String
+//    let lastName: String
+//    var phoneNumber: String
+//    var email: String
+//    var friends: [User]
+//    var favoriteBars: [Bar]
+//    var showLocation: Bool
+//   // let location: CLLocationCoordinate2D
+//}

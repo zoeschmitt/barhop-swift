@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		632620CA2591378D00763252 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C843E23124931ECC008FDB11 /* HomeView.swift */; };
 		63C5C02C24F5DD82003910D4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5C02B24F5DD82003910D4 /* Coordinator.swift */; };
 		63C5C03024F762A7003910D4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5C02F24F762A7003910D4 /* LocationManager.swift */; };
 		9719A251A89545FE0561E396 /* Pods_Barhop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EBD8726B5E1BB3C1E0AB47 /* Pods_Barhop.framework */; };
@@ -19,12 +20,10 @@
 		C81049852495301500277E96 /* FriendContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81049842495301500277E96 /* FriendContainerView.swift */; };
 		C81049892495393D00277E96 /* ProfileContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81049882495393D00277E96 /* ProfileContainerView.swift */; };
 		C817C65224389BF2002F796C /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817C65124389BF2002F796C /* Blur.swift */; };
-		C8328D57249471E2002089FF /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8328D56249471E2002089FF /* FirstView.swift */; };
 		C8328D592494743C002089FF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8328D582494743C002089FF /* SignInView.swift */; };
 		C8328D5C24947472002089FF /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8328D5B24947472002089FF /* CreateAccountView.swift */; };
 		C8328D5E24947691002089FF /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8328D5D24947691002089FF /* CustomField.swift */; };
 		C8328D6024947819002089FF /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8328D5F24947819002089FF /* BackButton.swift */; };
-		C843E23224931ECC008FDB11 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C843E23124931ECC008FDB11 /* HomeView.swift */; };
 		C843E23424931F23008FDB11 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C843E23324931F23008FDB11 /* MessagesView.swift */; };
 		C843E23624931F83008FDB11 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C843E23524931F83008FDB11 /* SettingsView.swift */; };
 		C84472D723F0C64000E50D78 /* BarScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84472D623F0C64000E50D78 /* BarScrollView.swift */; };
@@ -61,7 +60,6 @@
 		C81049842495301500277E96 /* FriendContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendContainerView.swift; sourceTree = "<group>"; };
 		C81049882495393D00277E96 /* ProfileContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContainerView.swift; sourceTree = "<group>"; };
 		C817C65124389BF2002F796C /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
-		C8328D56249471E2002089FF /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		C8328D582494743C002089FF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C8328D5B24947472002089FF /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		C8328D5D24947691002089FF /* CustomField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomField.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 		C8328D5A24947453002089FF /* SignInUpViews */ = {
 			isa = PBXGroup;
 			children = (
-				C8328D56249471E2002089FF /* FirstView.swift */,
 				C8328D582494743C002089FF /* SignInView.swift */,
 				C8328D5B24947472002089FF /* CreateAccountView.swift */,
 			);
@@ -403,14 +400,13 @@
 				C810497F249488F700277E96 /* Setting.swift in Sources */,
 				C8CAD2CC23EB4EDD00C65C0D /* MenuView.swift in Sources */,
 				C8CAD2CA23EB4E6800C65C0D /* BottomCardView.swift in Sources */,
-				C843E23224931ECC008FDB11 /* HomeView.swift in Sources */,
 				C84472D723F0C64000E50D78 /* BarScrollView.swift in Sources */,
-				C8328D57249471E2002089FF /* FirstView.swift in Sources */,
 				C8F7B9F123F8BC570071FD13 /* PhotosContainerView.swift in Sources */,
 				C8F7B9EF23F8BC460071FD13 /* ReviewContainerView.swift in Sources */,
 				C81049892495393D00277E96 /* ProfileContainerView.swift in Sources */,
 				C8328D5E24947691002089FF /* CustomField.swift in Sources */,
 				C8DD8BE223E3A81200D92C58 /* Bar.swift in Sources */,
+				632620CA2591378D00763252 /* HomeView.swift in Sources */,
 				C80AE20D2436FE47003123D3 /* BarView.swift in Sources */,
 				C817C65224389BF2002F796C /* Blur.swift in Sources */,
 				C8DD8BDB23E39F3F00D92C58 /* MapView.swift in Sources */,

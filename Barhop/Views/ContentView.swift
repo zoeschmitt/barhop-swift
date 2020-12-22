@@ -12,6 +12,7 @@ let screen = UIScreen.main.bounds
 
 let addy: Address = Address(street: "124 N Lyndon B Johnson Dr", city: "San Marcos", state: "TX", zip: "78666")
 
+
 struct ContentView: View  {
     
     private var locationManager = LocationManager()
@@ -209,7 +210,7 @@ struct Login: View {
                     return
                 }
                 
-                print("success")
+                print("success signing in")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 
@@ -366,7 +367,7 @@ struct SignUp: View {
                         return
                     }
                     
-                    print("success")
+                    print("success creating a user")
                     
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
@@ -386,8 +387,6 @@ struct SignUp: View {
         }
     }
 }
-
-
 
 struct ErrorView : View {
 
